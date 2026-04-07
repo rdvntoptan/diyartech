@@ -25,10 +25,22 @@ img{max-width:100%;display:block}
 .nav-links{display:none;align-items:center;gap:32px;font-size:14px;font-weight:500}
 @media(min-width:768px){.nav-links{display:flex}}
 .nav-links a{color:var(--muted-fg);transition:color .2s}
+  .hamburger{display:block;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;}
+@media(min-width:768px){.hamburger{display:none;}}
 .nav-links a:hover,.nav-links a.active{color:var(--primary)}
 .nav-phone{display:none;align-items:center;gap:8px;background:var(--primary);color:#fff;padding:8px 16px;border-radius:9999px;font-size:14px;font-weight:600}
 @media(min-width:640px){.nav-phone{display:flex}}
+</style>
 
+<!-- Hamburger Butonu -->
+<button class="hamburger" onclick="toggleMenu()">☰</button>
+
+<script>
+function toggleMenu() {
+  var nav = document.querySelector('.nav-links');
+  nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+}
+</script>
 /* Hero */
 .hero{position:relative;min-height:90vh;display:flex;align-items:center;padding-top:64px;overflow:hidden}
 .hero-bg{position:absolute;inset:0}
