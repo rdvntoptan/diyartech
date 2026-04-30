@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://diyartech.com.tr/sitemap.xml
