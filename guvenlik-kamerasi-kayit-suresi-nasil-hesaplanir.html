@@ -1,0 +1,348 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Güvenlik Kamerası Kayıt Süresi Nasıl Hesaplanır? | DiyarTech Blog</title>
+<meta name="description" content="NVR/DVR kayıt süresi hesaplama formülü, bitrate, çözünürlük, FPS ve disk kapasitesi ilişkisi.">
+<meta name="author" content="DiyarTech">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="article:published_time" content="2026-06-11">
+<meta property="article:section" content="Güvenlik Kameraları">
+<link rel="canonical" href="https://diyartech.com.tr/blog/guvenlik-kamerasi-kayit-suresi-nasil-hesaplanir.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="DiyarTech">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://diyartech.com.tr/blog/guvenlik-kamerasi-kayit-suresi-nasil-hesaplanir.html">
+<meta property="og:title" content="Güvenlik Kamerası Kayıt Süresi Nasıl Hesaplanır?">
+<meta property="og:description" content="NVR/DVR kayıt süresi hesaplama formülü, bitrate, çözünürlük, FPS ve disk kapasitesi ilişkisi.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1600&q=85&auto=format&fit=crop">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Güvenlik Kamerası Kayıt Süresi Nasıl Hesaplanır?">
+<meta name="twitter:description" content="NVR/DVR kayıt süresi hesaplama formülü, bitrate, çözünürlük, FPS ve disk kapasitesi ilişkisi.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1600&q=85&auto=format&fit=crop">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Güvenlik Kamerası Kayıt Süresi Nasıl Hesaplanır?", "description": "NVR/DVR kayıt süresi hesaplama formülü, bitrate, çözünürlük, FPS ve disk kapasitesi ilişkisi.", "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1600&q=85&auto=format&fit=crop", "author": {"@type": "Organization", "name": "DiyarTech", "url": "https://diyartech.com.tr"}, "publisher": {"@type": "Organization", "name": "DiyarTech", "logo": {"@type": "ImageObject", "url": "https://diyartech.com.tr/logo.png"}}, "datePublished": "2026-06-11", "dateModified": "2026-06-11", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://diyartech.com.tr/blog/guvenlik-kamerasi-kayit-suresi-nasil-hesaplanir.html"}, "articleSection": "Güvenlik Kameraları", "inLanguage": "tr-TR"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://diyartech.com.tr/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://diyartech.com.tr/blog.html"}, {"@type": "ListItem", "position": 3, "name": "Güvenlik Kamerası Kayıt Süresi Nasıl Hesaplanır?", "item": "https://diyartech.com.tr/blog/guvenlik-kamerasi-kayit-suresi-nasil-hesaplanir.html"}]}</script>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#161b26;--fg:#fafafa;--card:#1e2433;--primary:#ff6600;--muted:#2a3040;--muted-fg:#8a93a8;--border:#2a3040}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--fg);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--primary);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+@media(min-width:768px){.container{padding:0 32px}}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(22,27,38,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.navbar-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1200px;margin:0 auto;padding:0 16px}
+@media(min-width:768px){.navbar-inner{padding:0 32px}}
+.nav-logo{display:flex;align-items:center;gap:8px;color:var(--fg);font-weight:700}
+.nav-logo .l{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#ff6600,#ff8a3d);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900}
+.nav-links{display:none;align-items:center;gap:28px;font-size:14px;font-weight:500}
+@media(min-width:768px){.nav-links{display:flex}}
+.nav-links a{color:var(--muted-fg);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--primary)}
+.nav-phone{display:flex;align-items:center;gap:6px;background:var(--primary);color:#fff;padding:8px 14px;border-radius:9999px;font-size:13px;font-weight:600}
+.nav-phone:hover{text-decoration:none;opacity:.92}
+.nav-toggle{display:flex;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;width:40px;height:40px}
+@media(min-width:768px){.nav-toggle{display:none}}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--fg)}
+@media(max-width:767px){.nav-links{position:fixed;top:64px;left:0;right:0;background:rgba(22,27,38,.98);backdrop-filter:blur(12px);flex-direction:column;align-items:flex-start;gap:0;padding:8px 0;border-bottom:1px solid var(--border);max-height:0;overflow:hidden;transition:max-height .35s;display:flex!important}.nav-links.open{max-height:480px}.nav-links a{width:100%;padding:14px 24px;font-size:16px;border-bottom:1px solid var(--border)}.nav-phone span{display:none}}
+
+/* Blog */
+main{padding-top:64px}
+.crumbs{font-size:13px;color:var(--muted-fg);padding:18px 0}
+.crumbs a{color:var(--muted-fg)}
+.crumbs a:hover{color:var(--primary)}
+.post-hero{padding:24px 0 32px}
+.post-hero .cat{display:inline-block;background:rgba(255,102,0,.12);color:var(--primary);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:9999px;margin-bottom:14px}
+.post-hero h1{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;line-height:1.15;margin-bottom:14px}
+.post-meta{color:var(--muted-fg);font-size:14px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.post-cover{margin:24px 0 8px;border-radius:16px;overflow:hidden;border:1px solid var(--border);aspect-ratio:1200/630}
+.post-cover img{width:100%;height:100%;object-fit:cover}
+.post-body{font-size:17px;color:#e6e9f0;padding:24px 0 48px;max-width:760px;margin:0 auto}
+.post-body h2{font-size:1.6rem;font-weight:800;margin:36px 0 14px;color:#fff;letter-spacing:-.01em}
+.post-body h3{font-size:1.2rem;font-weight:700;margin:24px 0 10px;color:#fff}
+.post-body p{margin:0 0 14px}
+.post-body ul,.post-body ol{margin:8px 0 18px 22px}
+.post-body li{margin:6px 0}
+.post-body strong{color:#fff}
+.post-body blockquote{border-left:4px solid var(--primary);padding:8px 16px;color:var(--muted-fg);margin:18px 0;background:rgba(255,102,0,.06);border-radius:0 8px 8px 0}
+.post-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+.post-body th,.post-body td{border:1px solid var(--border);padding:10px 12px;text-align:left}
+.post-body th{background:var(--card);color:#fff}
+.post-cta{max-width:760px;margin:0 auto 56px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;text-align:center}
+.post-cta h3{font-size:1.4rem;font-weight:800;margin-bottom:8px}
+.post-cta p{color:var(--muted-fg);margin-bottom:16px}
+.post-cta a{display:inline-block;background:var(--primary);color:#fff;font-weight:700;padding:12px 24px;border-radius:9999px}
+.post-cta a:hover{text-decoration:none;opacity:.92}
+
+/* Blog index */
+.blog-hero{padding:48px 0 16px;text-align:center}
+.blog-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;margin-bottom:10px}
+.blog-hero p{color:var(--muted-fg);max-width:640px;margin:0 auto;font-size:17px}
+.cat-pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:24px 0 32px}
+.cat-pill{background:var(--card);border:1px solid var(--border);color:#fff;font-size:13px;font-weight:600;padding:8px 14px;border-radius:9999px;cursor:pointer;transition:all .2s}
+.cat-pill:hover,.cat-pill.active{background:var(--primary);border-color:var(--primary);color:#fff}
+.post-grid{display:grid;grid-template-columns:1fr;gap:20px;padding:8px 0 64px}
+@media(min-width:640px){.post-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.post-grid{grid-template-columns:repeat(3,1fr)}}
+.post-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:all .25s}
+.post-card:hover{transform:translateY(-3px);border-color:rgba(255,102,0,.5);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.post-card .cover{aspect-ratio:1200/630;overflow:hidden;background:#1a2030}
+.post-card .cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.post-card:hover .cover img{transform:scale(1.04)}
+.post-card .body{padding:18px;display:flex;flex-direction:column;flex:1}
+.post-card .cat{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);margin-bottom:8px}
+.post-card h2{font-size:17px;font-weight:700;color:#fff;line-height:1.35;margin-bottom:10px}
+.post-card .ex{font-size:13px;color:var(--muted-fg);margin-bottom:14px;flex:1}
+.post-card .meta{font-size:12px;color:var(--muted-fg);display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.post-card .read{color:var(--primary);font-weight:700;font-size:13px}
+.post-card a.full{color:inherit;display:contents}
+
+.footer{border-top:1px solid var(--border);padding:36px 0;color:var(--muted-fg);font-size:13px;text-align:center}
+.footer a{color:var(--muted-fg)}
+.footer a:hover{color:var(--primary)}
+</style></head><body>
+<nav class="navbar"><div class="navbar-inner">
+<a href="/" class="nav-logo"><span class="l">D</span><span>DiyarTech</span></a>
+<div class="nav-links" id="navLinks">
+<a href="/">Ana Sayfa</a>
+<a href="/#hizmetler">Hizmetler</a>
+<a href="calismalrimiz.html">Çalışmalarımız</a>
+<a href="blog.html" class="active">Blog</a>
+<a href="/#neden-biz">Neden Biz?</a>
+<a href="/#iletisim">İletişim</a>
+</div>
+<a href="tel:+905367231254" class="nav-phone"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>0536 723 12 54</span></a>
+<button class="nav-toggle" id="navToggle" aria-label="Menü"><span></span><span></span><span></span></button>
+</div></nav>
+<main>
+<div class="container">
+<nav class="crumbs"><a href="/">Ana Sayfa</a> › <a href="blog.html">Blog</a> › <span>Güvenlik Kamerası Kayıt Süresi Nasıl Hesaplanır?</span></nav>
+<article>
+<header class="post-hero">
+<span class="cat">Güvenlik Kameraları</span>
+<h1>Güvenlik Kamerası Kayıt Süresi Nasıl Hesaplanır?</h1>
+<div class="post-meta"><span>📅 11 Haziran 2026</span><span>✍️ DiyarTech Editör</span><span>⏱️ ~7 dk okuma</span></div>
+<div class="post-cover"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1600&q=85&auto=format&fit=crop" alt="Güvenlik Kamerası Kayıt Süresi Nasıl Hesaplanır?" width="1200" height="630" loading="eager"></div>
+</header>
+<div class="post-body">
+<h2>Güvenlik Kamerası Kayıt Süresi Nasıl Hesaplanır? Detaylı Rehber</h2>
+
+Güvenlik kameraları, hem iş yerlerimizde hem de konutlarımızda güvenlik ihtiyaçlarımızın vazgeçilmez bir parçası haline geldi. Özellikle Diyarbakır gibi hızla gelişen şehirlerde, can ve mal güvenliğini sağlamak adına DiyarTech'in sunduğu yüksek teknoloji çözümlerine talep her geçen gün artıyor. Ancak bir güvenlik sistemi kurarken en çok merak edilen konulardan biri, kameraların ne kadar süreyle kayıt yapabildiğidir. Kayıt süresi, sistemin performansı ve depolama ihtiyaçları açısından kritik öneme sahiptir. Bu rehberde, güvenlik kamerası kayıt süresini etkileyen faktörleri, hesaplama yöntemlerini ve DiyarTech olarak müşterilerimize sunduğumuz optimize edilmiş çözümleri detaylı bir şekilde ele alacağız.
+
+
+<figure style="margin:28px 0;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--card)"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80&auto=format&fit=crop" alt="NVR sabit disk depolama ünitesi" loading="lazy" width="1200" height="630" style="width:100%;height:auto;display:block;aspect-ratio:1200/630;object-fit:cover"><figcaption style="padding:10px 16px;font-size:13px;color:var(--muted-fg);text-align:center;font-style:italic">Çözünürlük ve kare hızı disk ihtiyacını belirler.</figcaption></figure>
+<h2>Kayıt Süresi Neden Önemlidir?</h2>
+
+Güvenlik kamerası kayıt süresi, potansiyel bir olayın ne kadar geriye dönük izlenebileceğini belirler. Suç analizlerinden iş süreçlerinin takibine, hatta sadece birkaç gün önceki bir olayın incelenmesine kadar birçok senaryoda geriye dönük kayıtlara erişim hayati olabilir. Yetersiz depolama alanı, önemli anların üzerine yazılmasına ve delillerin kaybolmasına yol açabilir. DiyarTech olarak, müşterilerimize sunacağımız çözümlerde, bu tür mağduriyetlerin önüne geçmek için optimum kayıt süresi hesaplamaları yaparız. Ayrıca, KVK Kanunu gibi yasal mevzuatlar da kayıtların belirli sürelerle saklanmasını zorunlu kılabilir.
+
+<h2>Kayıt Süresini Etkileyen Temel Faktörler</h2>
+
+Güvenlik kamerası kayıt süresi, bir dizi teknik özellik ve konfigürasyon parametresi tarafından belirlenir. Bu faktörleri anlamak, doğru depolama çözümünü seçmek için kritik öneme sahiptir.
+
+<h3>1. Kamera Sayısı ve Çözünürlük</h3>
+
+Kamera sayısı, toplam depolama ihtiyacını doğrudan etkileyen en temel faktördür. Her ek kamera, depolama alanına ek yük getirir.
+Çözünürlük ise bir görüntünün ne kadar detay içerdiğini belirler. Yüksek çözünürlük (örneğin 4K), daha net ve keskin görüntüler sunarken, aynı zamanda çok daha fazla depolama alanı gerektirir. HD (720p), Full HD (1080p), 2K (1440p) ve 4K (2160p) gibi çözünürlükler arasında depolama ihtiyacı önemli ölçüde değişkenlik gösterir. Örneğin, 4K bir kamera, 1080p bir kameraya göre yaklaşık 4 kat daha fazla alan kaplayabilir. Hikvision gibi sektör lideri markaların çeşitli çözünürlük seviyelerinde kameraları bulunmaktadır.
+
+<h3>2. Video Sıkıştırma (Codec) Teknolojisi</h3>
+
+Video sıkıştırma teknolojisi (codec), kayıt dosyasının boyutunu optimize etmek için kullanılır.
+<ul>
+    <li><strong>H.264:</strong> En yaygın kullanılan codec'lerden biridir. İyi bir sıkıştırma oranı sunar ve çoğu IP kamera sistemi tarafından desteklenir.</li>
+    <li><strong>H.265 (HEVC - High Efficiency Video Coding):</strong> H.264'e göre yaklaşık %50 daha iyi sıkıştırma performansı sunar. Aynı görüntü kalitesini daha düşük dosya boyutuyla sağladığı için depolama maliyetlerini düşürmede etkilidir. DiyarTech olarak yeni nesil NVR sistemlerimizde genellikle H.265 veya daha gelişmiş codec'leri tercih ediyoruz.</li>
+    <li><strong>H.265+:</strong> H.265'in daha da geliştirilmiş versiyonudur. Özellikle hareketsiz sahnelerde bant genişliği ve depolama kullanımını önemli ölçüde azaltır.</li>
+</ul>
+Doğru codec seçimi, depolama süresini uzatmada veya mevcut depolama alanından daha verimli faydalanmada kilit rol oynar.
+
+<h3>3. Kayıt Frame Oranı (FPS - Frames Per Second)</h3>
+
+Frame oranı (kare hızı), saniyede kaydedilen görüntü sayısını ifade eder. Yüksek FPS, daha akıcı ve detaylı videolar sağlarken, aynı zamanda daha fazla depolama alanı gerektirir.
+<ul>
+    <li><strong>1-5 FPS:</strong> Genellikle nadiren değişen alanlar veya uzun kayıt süreleri için tercih edilir.</li>
+    <li><strong>10-15 FPS:</strong> Çoğu genel güvenlik uygulaması için yeterli akıcılığı sağlar.</li>
+    <li><strong>25-30 FPS:</strong> Gerçek zamanlıya yakın akıcılık sunar ve hızlı hareketlerin izlenmesi gereken yerler (örneğin, banko gişeleri, fabrika hatları) için idealdir.</li>
+</ul>
+DiyarTech uzmanları, ihtiyacınıza göre optimum FPS ayarını belirlemek için ücretsiz keşif hizmeti sunar.
+
+<h3>4. Kayıt Modu (Hareket Algılama, Sürekli Kayıt, Planlı Kayıt)</h3>
+
+Kayıt modu, kamera sisteminizin ne zaman kayıt yapacağını belirler ve depolama kullanımını büyük ölçüde etkiler.
+<ul>
+    <li><strong>Sürekli Kayıt (24/7):</strong> Kameranın her zaman kayıt yapmasıdır. En yüksek depolama tüketimine sahiptir ancak hiçbir anı kaçırmama garantisi verir.</li>
+    <li><strong>Hareket Algılamalı Kayıt:</strong> Yalnızca kameranın görüş alanında bir hareket algılandığında kayıt başlar. Depolama alanından önemli ölçüde tasarruf sağlar. ANPR (Otomatik Plaka Tanıma) sistemleri gibi özel uygulamalarda da bu mod sıkça kullanılır.</li>
+    <li><strong>Planlı Kayıt:</strong> Belirli saatler veya günler boyunca kayıt yapılır. Örneğin, iş saatleri dışında kayıt yapmak gibi.</li>
+</ul>
+DiyarTech olarak, çoğu zaman hareket algılamalı kaydı, kritik bölgeler için ise sürekli kaydı önererek optimize bir çözüm sunarız.
+
+<h3>5. Sabit Disk Kapasitesi (HDD)</h3>
+
+Kayıt süresini doğrudan etkileyen en somut faktör, video kayıt cihazında (NVR veya DVR) kullanılan sabit diskin (HDD) kapasitesidir. 1TB, 2TB, 4TB, 8TB, 12TB ve üzeri kapasitelerde HDD'ler mevcuttur. Daha büyük kapasiteli HDD'ler, daha uzun kayıt süreleri sunar ancak maliyeti de artırır. DiyarTech çözümlerinde, ihtiyaca göre yüksek kapasiteli ve güvenilir, güvenlik sistemlerine özel HDD'ler kullanılır.
+
+<h2>Kayıt Süresi Hesaplama Yöntemi ve Formüller</h2>
+
+Güvenlik kamerası kayıt süresini hesaplamak için tipik bir formül ve bazı varsayımlar kullanılır. Hesaplama, genellikle bir kameranın bir günlük depolama ihtiyacını bulup, ardından toplam depolama kapasitesine bölerek yapılır.
+
+<strong>Basit Hesaplama Formülü:</strong>
+
+Günlük Depolama İhtiyacı (GB) = (Bit Hızı (Kbps) * 3600 saniye/saat * 24 saat/gün) / (8 * 1024 * 1024)
+
+Bu formül, video akışının bit hızına dayanır. Ancak çoğu zaman kamera çözünürlüğü ve sıkıştırma algoritması temel alınarak daha pratik hesaplamalar yapılır.
+
+<strong>Daha pratik bir Yaklaşım:</strong>
+
+Genellikle, bir kameranın belirli bir çözünürlük, sıkıştırma ve FPS ayarında ne kadar alan tükettiği tablolardan veya yazılımlardan öğrenilir. Aşağıda tipik değerler içeren bir tabloyu bulabilirsiniz:
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Çözünürlük</th>
+            <th>FPS (Kare/sn)</th>
+            <th>Sıkıştırma</th>
+            <th>Günlük Depolama (yaklaşık GB/kamera)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1080p (Full HD)</td>
+            <td>15</td>
+            <td>H.264</td>
+            <td>20-30 GB</td>
+        </tr>
+        <tr>
+            <td>1080p (Full HD)</td>
+            <td>25</td>
+            <td>H.264</td>
+            <td>35-50 GB</td>
+        </tr>
+        <tr>
+            <td>1080p (Full HD)</td>
+            <td>15</td>
+            <td>H.265</td>
+            <td>10-15 GB</td>
+        </tr>
+        <tr>
+            <td>1080p (Full HD)</td>
+            <td>25</td>
+            <td>H.265</td>
+            <td>18-25 GB</td>
+        </tr>
+        <tr>
+            <td>4MP (2K)</td>
+            <td>15</td>
+            <td>H.265</td>
+            <td>20-30 GB</td>
+        </tr>
+        <tr>
+            <td>4MP (2K)</td>
+            <td>25</td>
+            <td>H.265</td>
+            <td>35-50 GB</td>
+        </tr>
+        <tr>
+            <td>8MP (4K)</td>
+            <td>15</td>
+            <td>H.265</td>
+            <td>40-60 GB</td>
+        </tr>
+        <tr>
+            <td>8MP (4K)</td>
+            <td>25</td>
+            <td>H.265</td>
+            <td>70-100 GB</td>
+        </tr>
+    </tbody>
+</table>
+
+<strong>Kayıt Süresi Hesaplama Adımları:</strong>
+
+1.  <strong>Kamera Başına Günlük Depolama İhtiyacını Belirleyin:</strong> Yukarıdaki tablo veya kamera üreticisinin (Hikvision gibi) verileriyle, kameralarınızın çözünürlük, FPS ve sıkıştırma ayarlarını kullanarak tek bir kameranın bir günde kaç GB depolama alanına ihtiyaç duyduğunu bulun.
+2.  <strong>Toplam Günlük Depolama İhtiyacını Hesaplayın:</strong> Bu değeri, kullandığınız kamera sayısıyla çarpın.
+    `Toplam Günlük İhtiyaç = Kamera Sayısı * Tek Kameranın Günlük İhtiyacı (GB)`
+3.  <strong>Toplam Kullanılabilir Depolama Alanını Belirleyin:</strong> NVR/DVR'ınızdaki tüm sabit disklerin kapasitesini toplayın. RAID yapılandırması kullanılıyorsa, RAID seviyesinin sağladığı net kapasiteyi dikkate alın (örneğin, RAID 5'te bir disk kapasitesi kaybolur). Güvenlik sistemi NVR'ları genellikle 7/24 çalışmaya uygun, yüksek performanslı diskler kullanır.
+4.  <strong>Tahmini Kayıt Süresini Hesaplayın:</strong> Toplam kullanılabilir depolama alanını, toplam günlük depolama ihtiyacına bölün.
+    `Tahmini Kayıt Süresi (Gün) = Toplam Kullanılabilir Depolama (GB) / Toplam Günlük İhtiyaç (GB)`
+
+**Örnek Hesaplama:**
+
+*   8 adet 1080p (Full HD) kamera
+*   25 FPS
+*   H.265 sıkıştırma
+*   8 TB (8192 GB) HDD kapasitesi
+*   Kamera başına günlük ortalama 20 GB depolama ihtiyacı (tablodan veya üretici verisinden)
+
+1.  <strong>Kamera Başına Günlük İhtiyaç:</strong> 20 GB
+2.  <strong>Toplam Günlük İhtiyaç:</strong> 8 kamera * 20 GB/kamera = 160 GB/gün
+3.  <strong>Toplam Kullanılabilir Depolama:</strong> 8192 GB
+4.  <strong>Tahmini Kayıt Süresi:</strong> 8192 GB / 160 GB/gün = 51.2 gün
+
+Bu hesaplama, sürekli kayıt varsayımına dayanır. Eğer hareket algılamalı kayıt kullanılıyorsa, bu süre %50'den %90'a kadar artabilir, bu da önemli bir avantaj sağlar. DiyarTech olarak müşterilerimizin ihtiyaçlarına göre en optimize çözümü sunmaktayız.
+
+
+<figure style="margin:28px 0;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--card)"><img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=1200&q=80&auto=format&fit=crop" alt="Veri merkezi yedekli depolama" loading="lazy" width="1200" height="630" style="width:100%;height:auto;display:block;aspect-ratio:1200/630;object-fit:cover"><figcaption style="padding:10px 16px;font-size:13px;color:var(--muted-fg);text-align:center;font-style:italic">RAID yapılandırması veri kayıplarını önler.</figcaption></figure>
+<h2>Depolama Çözümleri ve Kapasite Artırma Yolları</h2>
+
+Kayıt süresini uzatmak ve veri güvenliğini artırmak için çeşitli depolama çözümleri ve stratejileri mevcuttur.
+
+<h3>NVR/DVR Cihazları ve HDD Seçimi</h3>
+
+Network Video Recorder (NVR) ve Digital Video Recorder (DVR) cihazları, güvenlik kamerası sistemlerinin beynidir. NVR'lar IP kamera sistemleri için, DVR'lar ise analog/HD-TVI/AHD sistemleri için kullanılır. Bu cihazlar birden fazla sabit disk yuvasına (HDD Bay) sahip olabilir.
+DiyarTech olarak, sistemlerimizde genellikle çoklu disk yuvasına sahip NVR'ları tercih ederiz. Bu, sistemin gelecekteki depolama ihtiyaçları için genişletilebilir olmasını sağlar. Sabit disk seçimi yapılırken mutlaka güvenlik kameraları için özel olarak tasarlanmış (örneğin, Western Digital Purple, Seagate Skyhawk) HDD'ler kullanılmalıdır. Bu diskler 7/24 çalışma, düşük hata oranı ve yüksek yazma/okuma performansına göre optimize edilmiştir.
+
+<h3>RAID Teknolojisi</h3>
+
+Redundant Array of Independent Disks (RAID), birden fazla sabit diski bir araya getirerek veri yedekliliği ve/veya performans artışı sağlamak amacıyla kullanılan bir teknolojidir. Güvenlik sistemlerinde veri kaybını önlemek için kritik öneme sahiptir.
+<ul>
+    <li><strong>RAID 0:</strong> Veri şeritlenmesi (striping) yapar, performansı artırır ancak veri yedekliliği sağlamaz. Bir disk arızalanırsa tüm veriler kaybolur.</li>
+    <li><strong>RAID 1:</strong> Veri aynalaması (mirroring) yapar. İki diske aynı verinin aynı anda yazılmasını sağlar. Bir disk arızalanırsa diğer diskten veri kurtarılabilir. Depolama kapasitesinin yarısı yedeklilik için kullanılır.</li>
+    <li><strong>RAID 5:</strong> En az üç disk gerektirir. Veri şeritlenmesi ve dağıtılmış parite blokları kullanır. Bir disk arızalanabilir ve veri kaybı olmadan sistem çalışmaya devam eder. Toplam kapasitenin bir disk eksiği kadar alan kullanılabilir depolama sağlar. Kurumsal güvenlik sistemlerinde sıkça tercih edilir.</li>
+    <li><strong>RAID 6:</strong> En az dört disk gerektirir. Çift parite kullanır, bu da iki diskin aynı anda arızalanması durumunda bile veri kaybını önler. Yüksek veri güvenliği gerektiren sistemler için idealdir.</li>
+</ul>
+DiyarTech olarak kurumsal müşterilerimize, özellikle yüksek kamera sayısı ve kritik veri güvenliği gerektiren projelerde RAID 5 veya RAID 6 teknolojisini öneriyoruz.
+
+<h3>Bulut Depolama Çözümleri</h3>
+
+Geleneksel on-premise depolama çözümlerine ek olarak, bulut tabanlı depolama, kayıtların fiziksel olarak bir NVR/DVR'a bağlı kalmadan uzaktan erişilebilir olmasını sağlar.
+<ul type="disc">
+    <li><strong>Avantajları:</strong> Fiziksel hırsızlık veya yangın gibi durumlarda verilerin korunması, uzaktan erişim kolaylığı, ölçeklenebilirlik (ihtiyaç duyulduğunda daha fazla depolama alanı kiralanabilir).</li>
+    <li><strong>Dezavantajları:</strong> Sürekli internet bağlantısı gereksinimi, aylık abonelik maliyetleri, bant genişliği kullanımı.</li>
+</ul>
+Hibrit sistemler (hem yerel hem de bulut depolama), hem hız hem de veri güvenliği açısından optimum bir denge sunabilir.
+
+<h2>DiyarTech Farkıyla Optimizasyon ve Uzmanlık</h2>
+
+DiyarTech olarak Diyarbakır ve çevresindeki müşterilerimize en verimli güvenlik kamerası çözümlerini sunarken, kayıt süresi optimizasyonuna özel önem veriyoruz:
+
+*   <strong>Ücretsiz Keşif ve İhtiyaç Analizi:</strong> Uzman ekibimiz, tesisinize gelerek kamera yerleşimini, görüş açılarını, ışık koşullarını ve güvenlik ihtiyaçlarınızı detaylı bir şekilde analiz eder. Bu, doğru kamera çözünürlüğü ve kayıt modu seçiminde kritik öneme sahiptir.
+*   <strong>Optimize Edilmiş Donanım Seçimi:</strong> Hikvision gibi sektör lideri markaların en yeni H.265+ sıkıştırma teknolojisine sahip IP kameralarını ve yüksek kapasiteli, güvenlik diskleriyle donatılmış NVR'larını kullanırız. Bu sayede hem daha uzun kayıt süresi hem de daha yüksek görüntü kalitesi sağlanır.
+*   <strong>Akıllı Kayıt Modları:</strong> İhtiyaçlarınıza göre sürekli kayıt, hareket algılamalı kayıt veya planlı kayıt modlarını optimal bir şekilde yapılandırırız. Özellikle ANPR (Otomatik Plaka Tanıma) sistemlerinde sadece plaka geçişlerinde kayıt yaparak depolama verimliliğini üst düzeye çıkarırız.
+*   <strong>RAID Çözümleri:</strong> Kritik sistemler için veri yedekliliği sağlayan RAID yapılandırmaları kurarız, böylece olası disk arızalarında bile kayıtlarınız güvende kalır.
+*   <strong>7/24 Teknik Destek:</strong> Kurulum sonrası yaşanabilecek her türlü teknik sorunda, 7 gün 24 saat kesintisiz destek sunarak sisteminizin sürekli çalışır durumda kalmasını sağlarız. Ayrıca, uzaktan erişim imkanları ile sistem ayarlarında gerekli optimizasyonları hızlıca yapabiliriz.
+*   <strong>İç Bağlantı Önerisi:</strong> DiyarTech'in sunduğu tüm güvenlik çözümleri hakkında daha fazla bilgi almak için <a href="/blog">blog</a> sayfamızı ziyaret edebilirsiniz.
+
+<h2>Sonuç</h2>
+
+Güvenlik kamerası kayıt süresi, bir güvenlik sisteminin planlanması ve kurulmasında göz ardı edilmemesi gereken hayati bir konudur. Kamera sayısı ve çözünürlüğü, sıkıştırma teknolojileri (codec'ler), frame oranları, kayıt modları ve sabit disk kapasitesi gibi birçok faktör, kayıt süresini doğrudan etkiler. Doğru hesaplamalar ve optimize edilmiş bir sistem tasarımı ile hem maliyet etkin bir çözüm elde edilebilir hem de önemli anların depolama yetersizliği nedeniyle kaybedilmesi riski ortadan kaldırılır.
+
+DiyarTech olarak Diyarbakır'da sunduğumuz ücretsiz keşif hizmeti ile güvenlik ihtiyaçlarınızı yerinde analiz ediyor, en güncel teknolojiye sahip IP kamera ve NVR sistemleriyle entegre çözümler sunuyoruz. 2 yıl garanti ve 7/24 destek hizmetimizle, hem bugün hem de gelecekte güvenliğiniz için yanınızdayız. Güvenlik kamerası kayıt süresi hesaplama ve sistem optimizasyonu konularında daha fazla bilgi almak veya ücretsiz keşif talebinde bulunmak için bizimle <a href="/iletisim">iletişim</a> kurmaktan çekinmeyin.
+
+<h2>Sık Sorulan Sorular</h2>
+
+<h3>Bir güvenlik kamerası ne kadar süre kayıt yapabilir?</h3>
+<p>Bir güvenlik kamerasının kayıt süresi, kamera sayısı, çözünürlük, sıkıştırma formatı (H.264, H.265), kayıt frame oranı (FPS), kayıt modu (sürekli, hareket algılama) ve sabit disk kapasitesi gibi birçok faktöre bağlıdır. Kesin bir süre vermek yerine, bu faktörler kullanılarak bir hesaplama yapılması gerekir. DiyarTech uzmanları, ihtiyacınıza özel hesaplamalar yaparak size en uygun çözümü sunabilir.</p>
+
+<h3>Depolama süresini uzatmak için ne yapmalıyım?</h3>
+<p>Depolama süresini uzatmak için yüksek verimli sıkıştırma formatları (H.265/H.265+) kullanan kameraları tercih etmek, hareket algılamalı kayıt modunu kullanmak, daha düşük bir frame oranı (FPS) ayarlamak (gerekmiyorsa) ve en önemlisi daha yüksek kapasiteli sabit diskler (HDD) kullanmak veya NVR'ınıza ek HDD'ler eklemek gibi yöntemler mevcuttur. RAID teknolojisi de depolama güvenliğini ve verimliliğini artırabilir.</p>
+
+<h3>Hareket algılamalı kayıt ne kadar depolama tasarrufu sağlar?</h3>
+<p>Hareket algılamalı kayıt, sürekli kayda kıyasla depolama alanından önemli ölçüde tasarruf sağlayabilir. Tasarruf oranı, izlenen alandaki hareket sıklığına bağlıdır ancak genelde %50 ila %90 arasında bir tasarruf sağlamak mümkündür. Örneğin, DiyarTech'in entegre ettiği sistemlerde, düşük trafikli bir alanda hareket algılamalı kayıt, sistemin kayıt süresini birkaç katına çıkarabilir.</p>
+</div>
+</article>
+<div class="post-cta">
+<h3>Diyarbakır'da Ücretsiz Keşif İster misiniz?</h3>
+<p>Uzman ekibimiz işletmenize özel çözümü 24 saat içinde sizinle paylaşır.</p>
+<a href="https://wa.me/905367231254" target="_blank" rel="noopener">WhatsApp ile İletişime Geç →</a>
+</div>
+</div>
+</main>
+<footer class="footer"><div class="container">© 2026 DiyarTech · Diyarbakır Güvenlik & Teknoloji Çözümleri · <a href="tel:+905367231254">0536 723 12 54</a> · <a href="/#iletisim">İletişim</a> · <a href="blog.html">Blog</a></div></footer>
+<a href="https://wa.me/905367231254" target="_blank" rel="noopener" style="position:fixed;bottom:24px;right:24px;z-index:50;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.3)"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg></a>
+<script>(function(){var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');if(!t||!l)return;t.addEventListener('click',function(){t.classList.toggle('open');l.classList.toggle('open')});})();</script>
+</body></html>
