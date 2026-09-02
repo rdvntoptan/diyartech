@@ -4,7 +4,7 @@ Profesyonel CCTV, IP kamera, plaka tanıma, alarm, geçiş kontrol, network alty
 
 🌐 **Canlı**: https://diyartech.com.tr  
 📞 **İletişim**: 0536 723 12 54  
-📍 **Adres**: Medya Mah. Diclekent Bulvarı Bedir 5 No:88 İç Kapı No:9 Kayapınar / Diyarbakır
+📍 **Adres**: Selahattin Eyyubi, Bayındırlık Cd. 344 sk, 21090 Kayapınar / Diyarbakır
 
 ## 📁 Yapı
 
