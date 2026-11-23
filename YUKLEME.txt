@@ -1,0 +1,5 @@
+ZIP dosyasını açın. İçindeki tüm dosyaları GitHub deponuzun köküne yükleyin; klasör içine koymayın. Mevcut dosyaları değiştirip Commit changes seçin.
+Fotoğraflar HTML içine gömülüdür; ayrıca fotoğraf yüklemeniz gerekmez.
+Ana sayfa index.html; ürün listesi katalog.html; 24 ürün detayı ois- ile başlayan HTML dosyalarıdır.
+Üç üretici PDF kataloğu ve üç ATEX sertifikası pakettedir. CNAME alan adını diyartech.com.tr olarak korur.
+GitHub Pages ayarında mevcut yayın dalını ve kök dizini koruyun; ardından siteyi Ctrl+F5 ile yenileyin.
